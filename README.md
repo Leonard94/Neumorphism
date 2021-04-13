@@ -17,7 +17,7 @@ Neumorphism — генератор Soft UI CSS для фронтенд-разр�
 
 ## 🚀 Посмотреть на прошлогодний тренд:
 
-[Клик](http://vladkoleda.ru/projects/todo/todo.html)
+[Клик](http://vladkoleda.ru/projects/neumorphism/neumorphism.html)
 
 
 
