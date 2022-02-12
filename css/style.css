@@ -42,7 +42,9 @@ html, body {
   align-items: center;
 }
 
-.result__container {}
+.result__container {
+  position: relative;
+}
 
 .shape {
   background: #e0e5ec;
@@ -335,6 +337,24 @@ footer {
   padding-top: 5px;
 }
 
+.output__btn {
+  /* width: 100%; */
+  display: inline-block;
+  height: 30px;
+  border-radius: 3px;
+  padding: 5px 15px;
+  background: #C79462;
+  color: var(--color-bg);
+  font-size: 14px;
+  font-weight: 300;
+  font-weight: 400;
+  margin: 15px 0 0 15px;
+  transition: all 0.3s ease;
+}
+.output__btn:hover {
+  background: var(--color-orange);
+}
+
 .span-count {
   color: #C79462;
 }
@@ -452,3 +472,22 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 /* #endregion Range */
+
+
+.notice {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+}
+.notice__body {
+  background: var(--color-orange);
+  padding: 10px 15px;
+  font-size: 14px;
+  line-height: 140%;
+  text-align: center;
+  border-radius: 5px;
+  transition: all 0.5 ease;
+  color: white;
+  margin: 10px 0;
+
+}

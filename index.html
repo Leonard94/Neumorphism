@@ -1,162 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- css  -->
+        <link rel="stylesheet" href="css/null.css" />
+        <link rel="stylesheet" href="css/style.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- css  -->
-  <link rel="stylesheet" href="css/null.css" />
-  <link rel="stylesheet" href="css/style.css" />
+        <!-- Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:ital,wght@0,300;0,400;500;1,300&display=swap"
+            rel="stylesheet"
+        />
 
-  <!-- Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:ital,wght@0,300;0,400;500;1,300&display=swap"
-    rel="stylesheet" />
+        <title>Neumorphism Generator</title>
+    </head>
 
-  <title>Neumorphism Generator</title>
-</head>
+    <body>
+        <div class="app">
+            <div class="app__row">
+                <!-- Result -->
+                <div class="result" id="workspace">
+                    <div class="result__container">
+                        <div class="shape" id="shape"></div>
+                    </div>
+                </div>
 
-<body>
-  <div class="app">
-    <div class="app__row">
-      <!-- Result -->
-      <div class="result" id='workspace'>
-        <div class="result__container">
-          <div class="shape" id="shape"></div>
+                <!-- Settings -->
+                <div class="settings" id="settings">
+                    <div class="settings__title">Neumorphism Generator</div>
+
+                    <!-- Range-->
+                    <div class="settings__ranges">
+                        <div class="range">
+                            <label class="range__title title" for=""
+                                >Size</label
+                            >
+                            <input
+                                class="range__input"
+                                type="range"
+                                min="150"
+                                max="400"
+                                value="250"
+                                id="range-size"
+                            />
+                        </div>
+                        <div class="range">
+                            <label class="range__title title" for=""
+                                >Radius</label
+                            >
+                            <input
+                                class="range__input"
+                                type="range"
+                                min="0"
+                                max="200"
+                                value="40"
+                                id="range-radius"
+                            />
+                        </div>
+                        <div class="range">
+                            <label class="range__title title" for=""
+                                >Distance</label
+                            >
+                            <input
+                                class="range__input"
+                                type="range"
+                                min="1"
+                                max="30"
+                                value="12"
+                                id="range-distance"
+                            />
+                        </div>
+                    </div>
+
+                    <!-- Shadow btns -->
+                    <div class="settings__btn-shadow">
+                        <div class="btn__title title">Shadow</div>
+
+                        <label for="shadow-inset">
+                            <input
+                                class="btn__shadow"
+                                type="radio"
+                                name="shadow"
+                                id="shadow-inset"
+                                checked
+                            />
+                            <span class="btn__shadow-my">Inset</span>
+                        </label>
+
+                        <label for="shadow-drop">
+                            <input
+                                class="btn__shadow"
+                                type="radio"
+                                name="shadow"
+                                id="shadow-drop"
+                            />
+                            <span class="btn__shadow-my">Drop</span>
+                        </label>
+                    </div>
+
+                    <!-- Light and Colors -->
+                    <div class="ligth-colors__row">
+                        <!-- Light btns-->
+                        <div class="settings__btn-light">
+                            <div class="btn__title title">Light</div>
+
+                            <!-- Top-left -->
+                            <label for="light__top-left">
+                                <input
+                                    class="btn__light"
+                                    type="radio"
+                                    name="light"
+                                    id="light__top-left"
+                                    checked
+                                />
+                                <span class="btn__light-my"></span>
+                            </label>
+
+                            <!-- Top-right -->
+                            <label for="light__top-right">
+                                <input
+                                    class="btn__light"
+                                    type="radio"
+                                    name="light"
+                                    id="light__top-right"
+                                />
+                                <span class="btn__light-my"></span>
+                            </label>
+
+                            <!-- Bottom-left -->
+                            <label for="light__bottom-left">
+                                <input
+                                    class="btn__light"
+                                    type="radio"
+                                    name="light"
+                                    id="light__bottom-left"
+                                />
+                                <span class="btn__light-my"></span>
+                            </label>
+
+                            <!-- Bottom-right -->
+                            <label for="light__bottom-right">
+                                <input
+                                    class="btn__light"
+                                    type="radio"
+                                    name="light"
+                                    id="light__bottom-right"
+                                />
+                                <span class="btn__light-my"></span>
+                            </label>
+                        </div>
+
+                        <!-- Color btns -->
+                        <div class="settings__btn-colors">
+                            <div class="btn-color__title title">Colors</div>
+                            <button class="btn-color" id="color-white"></button>
+                            <button
+                                class="btn-color"
+                                id="color-blackLight"
+                            ></button>
+                            <button class="btn-color" id="color-black"></button>
+                            <button class="btn-color" id="color-blue"></button>
+                            <button
+                                class="btn-color"
+                                id="color-blueDark"
+                            ></button>
+                            <button
+                                class="btn-color"
+                                id="color-orange"
+                            ></button>
+                            <button class="btn-color" id="color-red"></button>
+                            <button
+                                class="btn-color"
+                                id="color-purple"
+                            ></button>
+                        </div>
+                    </div>
+
+                    <!-- Generate CSS -->
+                    <div class="settings__btn-generate">
+                        <button class="btn-generate" id="generate">
+                            Generate CSS
+                        </button>
+                    </div>
+
+                    <!-- Footer -->
+                    <footer>
+                        <div class="madebyleonard">
+                            Made by <span>Leonard</span>
+                        </div>
+                    </footer>
+                </div>
+
+                <!-- Output -->
+                <div class="output" id="output">
+                    <div class="output__body">
+                        <div class="output__elements">
+                            <span id="output-close"></span><span></span
+                            ><span></span>
+                        </div>
+                        <div class="output__code">
+                            <p>
+                                width:
+                                <span class="span-count" id="output-width"
+                                    >NuN</span
+                                ><span class="span-count">px</span>;
+                            </p>
+                            <p>
+                                height:
+                                <span class="span-count" id="output-height"
+                                    >NuN</span
+                                ><span class="span-count">px</span>;
+                            </p>
+                            <p>
+                                border-radius:
+                                <span
+                                    class="span-count"
+                                    id="output-border-radius"
+                                    >NuN</span
+                                ><span class="span-count">px</span>;
+                            </p>
+                            <p>
+                                background:
+                                <span class="span-count" id="output-background"
+                                    >NuN</span
+                                >;
+                            </p>
+                            <p>
+                                box-shadow:
+                                <span class="span-count" id="output-shadow"
+                                    >NuN</span
+                                >;
+                            </p>
+                        </div>
+                        <button class="output__btn" id="btn-copy">Copy The Code</button>
+                    </div>
+                </div>
+
+                <!-- Notice -->
+                <div class="notice" id="notice">
+                </div>
+            </div>
         </div>
-      </div>
-
-      <!-- Settings -->
-      <div class="settings" id="settings">
-        <div class="settings__title">
-          Neumorphism Generator
-        </div>
-
-        <!-- Range-->
-        <div class="settings__ranges">
-          <div class="range">
-            <label class="range__title title" for="">Size</label>
-            <input class="range__input" type="range" min="150" max="400" value="250" id="range-size" />
-          </div>
-          <div class="range">
-            <label class="range__title title" for="">Radius</label>
-            <input class="range__input" type="range" min="0" max="200" value="40" id="range-radius" />
-          </div>
-          <div class="range">
-            <label class="range__title title" for="">Distance</label>
-            <input class="range__input" type="range" min="1" max="30" value="12" id="range-distance" />
-          </div>
-        </div>
-
-        <!-- Shadow btns -->
-        <div class="settings__btn-shadow">
-          <div class="btn__title title">Shadow</div>
-
-          <label for="shadow-inset">
-            <input class="btn__shadow" type="radio" name="shadow" id="shadow-inset" checked />
-            <span class='btn__shadow-my'>Inset</span>
-          </label>
-
-          <label for="shadow-drop">
-            <input class="btn__shadow" type="radio" name="shadow" id="shadow-drop" />
-            <span class='btn__shadow-my'>Drop</span>
-          </label>
-        </div>
-
-        <!-- Light and Colors -->
-        <div class="ligth-colors__row">
-
-          <!-- Light btns-->
-          <div class="settings__btn-light">
-            <div class="btn__title title">Light</div>
-
-            <!-- Top-left -->
-            <label for="light__top-left">
-              <input class="btn__light" type="radio" name="light" id="light__top-left" checked />
-              <span class='btn__light-my'></span>
-            </label>
-
-            <!-- Top-right -->
-            <label for="light__top-right">
-              <input class="btn__light" type="radio" name="light" id="light__top-right" />
-              <span class='btn__light-my'></span>
-            </label>
-
-            <!-- Bottom-left -->
-            <label for="light__bottom-left">
-              <input class="btn__light" type="radio" name="light" id="light__bottom-left" />
-              <span class='btn__light-my'></span>
-            </label>
-
-            <!-- Bottom-right -->
-            <label for="light__bottom-right">
-              <input class="btn__light" type="radio" name="light" id="light__bottom-right" />
-              <span class='btn__light-my'></span>
-            </label>
-          </div>
-
-          <!-- Color btns -->
-          <div class="settings__btn-colors">
-            <div class="btn-color__title title">Colors</div>
-            <button class="btn-color" id='color-white'></button>
-            <button class="btn-color" id='color-blackLight'></button>
-            <button class="btn-color" id='color-black'></button>
-            <button class="btn-color" id='color-blue'></button>
-            <button class="btn-color" id='color-blueDark'></button>
-            <button class="btn-color" id='color-orange'></button>
-            <button class="btn-color" id='color-red'></button>
-            <button class="btn-color" id='color-purple'></button>
-          </div>
-
-        </div>
-
-        <!-- Generate CSS -->
-        <div class="settings__btn-generate">
-          <button class='btn-generate' id='generate'>Generate CSS</button>
-        </div>
-
-
-        <!-- Footer -->
-        <footer>
-          <div class="madebyleonard">Made by <span>Leonard</span></div>
-        </footer>
-      </div>
-
-      <!-- Output -->
-      <div class="output" id='output'>
-        <div class="output__body">
-          <div class="output__elements">
-            <span id='output-close'></span><span></span><span></span>
-          </div>
-          <div class="output__code">
-            <p>
-              width:
-              <span class='span-count' id='output-width'>NuN</span><span class='span-count'>px</span>;
-            </p>
-            <p>
-              height:
-              <span class='span-count' id='output-height'>NuN</span><span class='span-count'>px</span>;
-            </p>
-            <p>
-              border-radius:
-              <span class='span-count' id='output-border-radius'>NuN</span><span class='span-count'>px</span>;
-            </p>
-            <p>
-              background:
-              <span class='span-count' id='output-background'>NuN</span>;
-            </p>
-            <p>
-              box-shadow:
-              <span class='span-count' id='output-shadow'>NuN</span>;
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</body>
-<script src="js/script.js"></script>
-
+    </body>
+    <script src="js/script.js"></script>
 </html>
